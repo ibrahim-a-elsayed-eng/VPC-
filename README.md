@@ -64,6 +64,6 @@ Following best cloud practices, all created resources were completely torn down 
 - Detached and deleted the Internet Gateway.
 - Deleted all associated custom Subnets.
 - Deleted the Custom VPC
-- 
-- - * ## 🎓 NextWork Verification
+-
+   * ## 🎓 NextWork Verification
 * **Project Badge/Certificate:** (https://nextwork.ai/hemaa/docs/7f907ac7-2473-5c15-a8be-edb36581cdba)
