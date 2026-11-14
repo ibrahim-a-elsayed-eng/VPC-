@@ -1,4 +1,5 @@
-<img width="1024" height="536" alt="hisoka cloud eng" src="https://github.com/user-attachments/assets/e76f37f6-a101-43eb-a9ba-0f885030358a" />
+<img width="2814" height="1536" alt="Gemini_Generated_Image_xwa2mmxwa2mmxwa2" src="https://github.com/user-attachments/assets/ed3eccd3-0d98-4b33-a95a-3ce8147baa9c" />
+
 
 [![Linux](https://img.shields.io/badge/OS-Ubuntu_WSL2-orange?logo=ubuntu&logoColor=white)](https://ubuntu.com)
 [![Cloud](https://img.shields.io/badge/Cloud-AWS-232F3E?logo=amazonaws&logoColor=white)](https://aws.amazon.com)
