@@ -1,8 +1,10 @@
-# 🌐 Custom AWS VPC Architecture & CLI Automation
+
 [![Linux](https://img.shields.io/badge/OS-Ubuntu_WSL2-orange?logo=ubuntu&logoColor=white)](https://ubuntu.com)
 [![Cloud](https://img.shields.io/badge/Cloud-AWS-232F3E?logo=amazonaws&logoColor=white)](https://aws.amazon.com)
 [![Shell](https://img.shields.io/badge/Shell-Bash-green?logo=gnubash&logoColor=white)](https://www.gnu.org/software/bash/)
 [![Git](https://img.shields.io/badge/Tool-Git-red?logo=git&logoColor=white)](https://git-scm.com)
+# 🌐 Custom AWS VPC Architecture & CLI Automation
+
 
 ## 📝 Project Overview / نبذة عن المشروع
 This project showcases the creation of a secure, custom Virtual Private Cloud (VPC) on AWS using both the AWS Management Console and CLI automation. The goal was to understand foundational cloud networking, subnets, route tables, and internet connectivity.
