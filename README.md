@@ -63,4 +63,5 @@ Following best cloud practices, all created resources were completely torn down 
 اتباعاً لأفضل ممارسات السحابة، تم حذف وتدمير كافة الموارد بنجاح لتجنب أي تكاليف:
 - Detached and deleted the Internet Gateway.
 - Deleted all associated custom Subnets.
-- Deleted the Custom VPC.
+- Deleted the Custom VPC
+- 
