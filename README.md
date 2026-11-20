@@ -1,41 +1,59 @@
-<img width="2814" height="1536" alt="Gemini_Generated_Image_xwa2mmxwa2mmxwa2" src="https://github.com/user-attachments/assets/ed3eccd3-0d98-4b33-a95a-3ce8147baa9c" />
+<div align="center">
 
-[![Cloud](https://img.shields.io/badge/Cloud-AWS-232F3E?logo=amazonaws&logoColor=white)](https://aws.amazon.com)
-[![Shell](https://img.shields.io/badge/Shell-AWS_CloudShell-orange)](https://aws.amazon.com/cloudshell/)
-[![Tool](https://img.shields.io/badge/Tool-AWS_CLI-green)](https://aws.amazon.com/cli/)
-[![Tool](https://img.shields.io/badge/Tool-Git-red?logo=git&logoColor=white)](https://git-scm.com)
+<img width="2814" height="1536" alt="AWS VPC Banner" src="https://github.com/user-attachments/assets/ed3eccd3-0d98-4b33-a95a-3ce8147baa9c" />
 
-# 🌐 My First AWS VPC: Console & CLI
+# My First AWS VPC: Console & CLI
 
-## 📝 Project Overview / نبذة عن المشروع
-In this NextWork project I took my first steps in AWS networking. I created a Virtual Private Cloud (VPC), a subnet and an internet gateway (IGW) in the AWS Management Console. Then I repeated the same setup with the AWS CLI in CloudShell (Secret Mission).
+![AWS](https://img.shields.io/badge/AWS-VPC%20%7C%20Subnet%20%7C%20IGW-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
+![CLI](https://img.shields.io/badge/CLI-AWS%20CloudShell-0EA5E9?style=for-the-badge&logo=amazonaws&logoColor=white)
+![Networking](https://img.shields.io/badge/Networking-CIDR%2010.0.0.0%2F16-10B981?style=for-the-badge)
+![Cost](https://img.shields.io/badge/Lab%20Cost-%240%20Free%20Tier-0F172A?style=for-the-badge)
 
-في هذا المشروع أنشأت أول شبكة افتراضية خاصة (VPC) على AWS مع شبكة فرعية (Subnet) وبوابة إنترنت (IGW) من لوحة التحكم. ثم كررت نفس الإعداد بالأوامر في CloudShell.
+**Built an AWS Virtual Private Cloud, Subnet, and Internet Gateway using both the AWS Management Console and AWS CloudShell CLI.**
 
-## 🛠️ Tech Stack / التقنيات المستخدمة
-- **Cloud:** AWS (VPC, Subnet, Internet Gateway)
+</div>
+
+---
+
+## 1. Architecture Overview
+
+```mermaid
+flowchart LR
+    IGW["Internet Gateway\nNextWork IG (Attached)"] <--> VPC["VPC: NextWork VPC\n10.0.0.0/16 (Console)"]
+    VPC --> Subnet["Subnet: Public 1\n10.0.0.0/24\nAuto-assign Public IPv4: On"]
+```
+
+> [!IMPORTANT]
+> **Key Design Decision:** Building the same VPC topology twice—first in the AWS Console (`NextWork VPC`) and then via AWS CLI in CloudShell (`NextWork VPC 2`)—validates both visual networking concepts and repeatable CLI provisioning. Note that `Public 1` only becomes truly public after adding a route to the Internet Gateway in the next project of the VPC series.
+
+---
+
+## 2. Problem & Solution
+
+| Aspect | Detail |
+| :--- | :--- |
+| **Problem** | Default VPCs abstract away how IP ranges (`CIDR`), subnets, and internet gateways actually connect together. |
+| **Solution** | Provisioned a custom VPC, subnet, and attached Internet Gateway manually in the AWS Console, then replicated the setup via AWS CloudShell CLI. |
+| **Networking Scope** | Console: `NextWork VPC` (`10.0.0.0/16`) + `Public 1` (`10.0.0.0/24`) + `NextWork IG`; CLI: `NextWork VPC 2` (`10.0.0.0/24`) + `10.0.0.0/25` + attached IGW. |
+
+---
+
+## 3. Tech Stack
+- **Cloud:** Amazon Web Services (VPC, Subnets, Internet Gateway)
 - **Tools:** AWS Management Console, AWS CloudShell, AWS CLI
 - **Documentation:** Git & GitHub
 
-## 🗺️ What I Built / ما قمت ببنائه
+---
 
-| Method | VPC | Subnet | Internet Gateway |
-|--------|-----|--------|------------------|
-| Console | `NextWork VPC` (`10.0.0.0/16`) | `Public 1` (`10.0.0.0/24`) | `NextWork IG` (attached) |
-| CLI | `NextWork VPC 2` (`10.0.0.0/24`) | `10.0.0.0/25` | attached |
+## 4. Implementation Steps (Summary)
+1. **AWS Console Setup:** Created `NextWork VPC` (`10.0.0.0/16`), created subnet `Public 1` (`10.0.0.0/24`) with auto-assign public IPv4 enabled, and created & attached `NextWork IG`.
+2. **Secret Mission (AWS CloudShell CLI):** Repeated the build using `aws ec2` commands to create `NextWork VPC 2` (`10.0.0.0/24`), a `10.0.0.0/25` subnet, and an attached Internet Gateway.
+3. **Troubleshooting & Cost Guardrails:** Resolved CLI resource ID prefix and option spelling issues, and verified `$0` cost (no NAT Gateway, EC2, or standalone public IP created; budget alert active).
 
-> [!NOTE]
-> The subnet is named "Public 1", but it only becomes truly public after a route to the internet gateway is added. I will do that in the next project of the series.
+<details>
+<summary><b>Click to expand AWS CLI commands & troubleshooting log</b></summary>
 
-## 💻 Steps / الخطوات
-
-### 1. AWS Console
-1. Created the VPC `NextWork VPC` with CIDR `10.0.0.0/16`.
-2. Created the subnet `Public 1` with CIDR `10.0.0.0/24` and enabled auto-assign public IPv4.
-3. Created the internet gateway `NextWork IG` and attached it to the VPC.
-
-### 2. Secret Mission: AWS CLI in CloudShell
-```
+```bash
 aws ec2 create-vpc --cidr-block 10.0.0.0/24 --query Vpc.VpcId --output text
 aws ec2 create-tags --resources <vpc-id> --tags Key=Name,Value="NextWork VPC 2"
 aws ec2 create-subnet --vpc-id <vpc-id> --cidr-block 10.0.0.0/25
@@ -43,25 +61,24 @@ aws ec2 create-internet-gateway --query InternetGateway.InternetGatewayId --outp
 aws ec2 attach-internet-gateway --vpc-id <vpc-id> --internet-gateway-id <igw-id>
 ```
 
-## 📸 Screenshots / لقطات الشاشة
-![VPC settings](vpc%20set.PNG)
-![Subnet created](creating%20puplic%20subnet.PNG)
-![Internet gateway attached](attached%20IGW%20with%20subnet.PNG)
-
-## 🐞 Challenges & Troubleshooting / التحديات وحلول المشكلات
-
 | Problem | Diagnosis | Solution |
-|---------|-----------|----------|
-| `InvalidVpcId.Malformed` and `InvalidInternetGatewayId.Malformed` | I copied the IDs without their prefix (`vpc-`, `igw-`) | Used the full IDs, for example `vpc-0d0cc075...` |
-| `create-tags` failed | I left the placeholder `VPC-ID` in the command | Replaced it with my real VPC ID |
-| `create-subnet` failed | I forgot `--cidr-block` and misspelled some options (`--cidr-bloc`) | Added the option and fixed the spelling |
+| :--- | :--- | :--- |
+| `InvalidVpcId.Malformed` and `InvalidInternetGatewayId.Malformed` | Copied IDs without their resource prefix (`vpc-`, `igw-`) | Used full IDs (e.g., `vpc-0d0cc075...`) |
+| `create-tags` failed | Left placeholder `VPC-ID` in the command | Replaced placeholder with the actual VPC ID |
+| `create-subnet` failed | Missing `--cidr-block` / typo `--cidr-bloc` | Fixed option name using `--help` |
 
-**Lesson / الدرس:** Read the command slowly, replace every placeholder, and use `--help` to check option names.
+</details>
 
-## 🧹 Cost & Cleanup / التكلفة والتنظيف
-- A VPC, subnets and an internet gateway are free. I did not create any NAT gateway, EC2 instance or public IP.
-- The resources are still in my account. I will delete them after I finish the VPC series: detach and delete the internet gateway, then the subnet, then the VPC.
-- I also set up a budget alert on my AWS account.
+---
 
-## 🎓 NextWork Project
-[View my project page](https://nextwork.ai/hemaa/docs/7f907ac7-2473-5c15-a8be-edb36581cdba)
+## 5. Verification & Results
+- **VPC Settings:** ![VPC settings](vpc%20set.PNG)
+- **Subnet Created:** ![Subnet created](creating%20puplic%20subnet.PNG)
+- **Internet Gateway Attached:** ![Internet gateway attached](attached%20IGW%20with%20subnet.PNG)
+- **NextWork Project Page:** [View NextWork Project](https://nextwork.ai/hemaa/docs/7f907ac7-2473-5c15-a8be-edb36581cdba)
+
+---
+
+## 6. Key Engineering Takeaways
+- **Subnet Naming vs. Routing:** Naming a subnet `Public 1` does not make it public on its own—an Internet Gateway attachment plus a route table entry (`0.0.0.0/0 -> igw`) is required.
+- **CLI Precision:** Always pass full AWS resource prefixes (`vpc-`, `igw-`), replace placeholders, and verify flags with `--help`.
