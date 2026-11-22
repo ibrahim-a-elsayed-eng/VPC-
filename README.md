@@ -1,6 +1,6 @@
 <div align="center">
 
-<img width="2814" height="1536" alt="AWS VPC Banner" src="https://github.com/user-attachments/assets/ed3eccd3-0d98-4b33-a95a-3ce8147baa9c" />
+<img alt="AWS VPC Part 1 Architecture Diagram" src="./images/aws_vpc_part1_architecture.jpg" />
 
 # My First AWS VPC: Console & CLI
 
