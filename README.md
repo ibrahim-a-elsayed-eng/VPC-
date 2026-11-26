@@ -25,17 +25,16 @@
 | 6 | VPC Peering | Cross-VPC Private Routing | *Pending* | — |
 | 7 | VPC Monitoring with Flow Logs | VPC Flow Logs, CloudWatch Logs | *Pending* | — |
 | 8 | Access S3 from a VPC | Gateway VPC Endpoints, Private S3 Access | *Pending* | — |
-| 9 | Build a VPC with CloudFormation / IaC | Infrastructure as Code VPC Provisioning | *Pending* | — |
+| 9 | VPC Endpoints | Interface & Gateway Endpoints, PrivateLink | *Pending* | — |
 
 ---
 
 ## Repository Structure
 
 ```text
-VPC-/
+aws-vpc-networking-series/
 ├── README.md                                  # Series overview & progress tracker (2/9)
-├── images/
-│   └── aws_vpc_part1_architecture.jpg         # Series architecture diagram
+├── screenshots/                               # Lab 01 console verification screenshots
 └── labs/
     ├── 01-build-a-vpc.md                      # Lab 01: VPC, Subnet, IGW (Console + CLI)
     └── 02-vpc-traffic-flow-and-security.md    # Lab 02: Route Tables, SG, NACL & EC2 Global View

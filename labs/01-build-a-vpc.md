@@ -47,6 +47,6 @@ aws ec2 attach-internet-gateway --vpc-id <vpc-id> --internet-gateway-id <igw-id>
 ---
 
 ## 3. Verification Screenshots
-- **VPC Settings:** ![VPC settings](../vpc%20set.PNG)
-- **Subnet Created:** ![Subnet created](../creating%20puplic%20subnet.PNG)
-- **Internet Gateway Attached:** ![Internet gateway attached](../attached%20IGW%20with%20subnet.PNG)
+- **VPC Settings:** ![VPC settings](../screenshots/lab01-vpc-settings.png)
+- **Subnet Created:** ![Subnet created](../screenshots/lab01-public-subnet.png)
+- **Internet Gateway Attached:** ![Internet gateway attached](../screenshots/lab01-igw-attached.png)
