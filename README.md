@@ -1,7 +1,5 @@
 <div align="center">
 
-<img alt="AWS VPC Architecture Diagram" src="./images/aws_vpc_part1_architecture.jpg" />
-
 # Amazon VPC Networking Series (AWS Hands-On Labs)
 
 ![AWS](https://img.shields.io/badge/AWS-VPC%20Networking%20Series-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
