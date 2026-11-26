@@ -45,4 +45,4 @@ aws-vpc-networking-series/
 ## Engineering & Cost Guardrails
 - **Zero-Spend Teardown:** Every lab is torn down immediately after verification (`$0.00` AWS spend confirmed; no idle NAT Gateways, Elastic IPs, or EC2 instances left running).
 - **Secret Hygiene:** Zero AWS Account IDs, real public IPs, or credentials committed.
-- **Next Flagship Consolidation:** Upon completing all 9 labs, the full production architecture will be codified in Terraform inside [terraform-aws-vpc](https://github.com/ibrahim-a-elsayed-eng/terraform-aws-vpc).
+- **Next Flagship Consolidation:** Upon completing all 9 labs, the full production architecture will be codified from scratch in Terraform (`Flagship #1`).
